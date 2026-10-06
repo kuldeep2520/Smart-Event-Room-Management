@@ -1,11 +1,18 @@
 class Room:
-
-    def __init__(self, room_id, status, end_time):
+    def __init__(self, room_id, name, capacity, status="Free", event="-", available_from=0):
         self.room_id = room_id
+        self.name = name
+        self.capacity = capacity
         self.status = status
-        self.end_time = end_time
-    def display_room(self):
-        print(f"Room ID : {self.room_id}")
-        print(f"Status : {self.status}")
-        print(f"End Time : {self.end_time}")
-        print()
+        self.event = event
+        # Time (in minutes) from which the room is available again.
+        self.available_from = available_from
+
+    def __str__(self):
+        return (
+            f"{self.room_id} | "
+            f"{self.name} | "
+            f"Capacity: {self.capacity} | "
+            f"Status: {self.status} | "
+            f"Available From: {self.available_from}"
+        )
